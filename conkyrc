@@ -45,12 +45,12 @@ default_bar_size 60 8
 #########################
 draw_shades yes
 
-default_color 2C8ACA
+default_color black
 
-color0 2C8ACA
-color1 2C8ACA
-color2 2C8ACA
-color3 2C8ACA
+color0 black
+color1 black
+color2 black
+color3 black
 
 TEXT
 #############
@@ -61,7 +61,7 @@ $hr
 ${voffset -2}${alignc 38}${color2}${font Inconsolata:style=Bold:size=28}${time %H:%M}${font}${color}
 ${alignc}${time %d %B %Y}
 ${alignc}${execpi 1800 python /home/mlabib/hread.py}
-${font ProFont:size=11}${color #2C8ACA}CALENDAR $hr${font}
+${font ProFont:size=11}${color black}CALENDAR $hr${font}
 ${font ProFont:size=8}${execpi 1800 DA=`date +%_d`; cal | sed s/"\(^\|[^0-9]\)$DA"'\b'/'\1${color white}'"$DA"'$color'/}
 ${font ProFont:style=Bold:size=11}SYSTEM $hr${font}
 $hr
