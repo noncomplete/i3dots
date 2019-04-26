@@ -15,7 +15,7 @@ My Xubuntu i3 setup.
 + hijri.* files for hizri date integration.
 + zsh + ohmyzsh
 
-# To-Do:
+## To-Do:
 + Create a bash script for automatically setting up the environment.
 
 Looks something like this (changes a lot):
