@@ -1,35 +1,15 @@
-export TERM="xterm-256color"
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-#export PATH=~/anaconda3/bin:$PATH
-export PATH=/home/mlabib/.local/bin:$PATH
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 # Path to your oh-my-zsh installation.
-export ZSH="/home/mlabib/.oh-my-zsh"
-task
+  export ZSH="/home/labib/.oh-my-zsh"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="agnoster"
-ZSH_THEME="powerlevel9k/powerlevel9k"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context dir vcs virtualenv virtualenv anaconda pyenv)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history custom_hijri)
-POWERLEVEL9K_BATTERY_STAGES="▁▂▃▄▅▆▇█"
-#POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-#POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="╭──"
-#P9K_MULTILINE_SECOND_PROMPT_PREFIX="❱ "
-#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="╰──── "
-#P9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{cyan}\u256D\u2500%f"
-#P9K_MULTILINE_LAST_PROMPT_PREFIX="%F{014}\u2570%F{cyan}\uF460%F{073}\uF460%F{109}\uF460%f "
-#POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{blue}\u256D\u2500%f"
-#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{blue}\u2570\uf460%f "
-POWERLEVEL9K_MODE='nerdfont-complete'
-POWERLEVEL9K_CUSTOM_HIJRI="echo \$(python /home/mlabib/hread.py) AH"
-POWERLEVEL9K_CUSTOM_HIJRI_BACKGROUND="green"
-POWERLEVEL9K_CUSTOM_HIJRI_FOREGROUND="black"
-#POWERLEVEL9K_CUSTOM_OS="echo "
+ZSH_THEME="bira"
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -56,10 +36,10 @@ POWERLEVEL9K_CUSTOM_HIJRI_FOREGROUND="black"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -82,10 +62,8 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  python
-  git
-)
+plugins=(git
+		 python)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -115,11 +93,5 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="mousepad ~/.zshrc"
-alias todo="python /home/mlabib/Documents/py-todo/todo"
-alias spyder="/home/mlabib/anaconda3/bin/spyder"
+# alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#task
-#(cat ~/.cache/wal/sequences &)
-#mons -a &!
-alias :q="exit"
