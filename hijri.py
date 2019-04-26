@@ -3,7 +3,7 @@ import json
 import urllib.request as req
 
 
-with req.urlopen('https://www.moonsighting.org.uk/scripts/hijri.php?return=json&country=BD&apikey=1d1a21665d61fd38795e1c71ced50098') as date_uform:
+with req.urlopen('https://www.moonsighting.org.uk/scripts/hijri.php?return=json&country=BD&apikey=***') as date_uform:
     date_json = date_uform.read()
 
 date_dict = json.loads(date_json)
