@@ -1,21 +1,21 @@
 # i3dots
 My Xubuntu i3 setup.
 
-##Goals:
+## Goals:
 + Simple and functional.
 + (mostly) no bloat.
 + Easy on the eyes.
 + No extensive ricing required. (Ain't nobody got time fo that)
 + A distraction free environment for my works.
 
-##Requirements:
+## Requirements:
 + i3
 + solarc gtk theme
 + iosevka font
 + hijri.* files for hizri date integration.
 + zsh + ohmyzsh
 
-#To-Do:
+# To-Do:
 + Create a bash script for automatically setting up the environment.
 
 Looks something like this (changes a lot):
