@@ -5,7 +5,7 @@ My Xubuntu i3 setup.
 + Simple and functional.
 + (mostly) no bloat.
 + Easy on the eyes.
-+ No extensive ricing required. (Ain't nobody got time fo that)
++ No extensive ricing.
 + A distraction free environment for my works.
 
 ## Requirements:
