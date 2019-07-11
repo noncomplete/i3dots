@@ -1,15 +1,28 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/home/labib/phq/src:$PATH
+export PATH=/home/labib/q-e/bin:$PATH
+export PATH=/home/labib/scripts:$PATH
+export PATH=/home/labib/ovito-3.0.0-dev419-x86_64/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/labib/.oh-my-zsh"
+export ZSH="/home/labib/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="bira"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
+# powerlevel10k configuration
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context virtualenv newline dir vcs)
+POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=''
+POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=''
+POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=''
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs custom_hijri_date)
+POWERLEVEL9K_CUSTOM_HIJRI_DATE="echo $(python3 ~/hread.py)"
+POWERLEVEL9K_CUSTOM_HIJRI_DATE_BACKGROUND="blue"
+#POWERLEVEL9K_MODE="awesome-fontconfig"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
