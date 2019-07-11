@@ -14,6 +14,7 @@ My Xubuntu i3 setup.
 + iosevka font
 + hijri.* files for hizri date integration.
 + zsh + ohmyzsh
++ bumblebee-status
 
 ## To-Do:
 + Create a bash script for automatically setting up the environment.
