@@ -8,11 +8,10 @@ set $mod Mod4
 # workspace_layout tabbed <stacking|tabbed>
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window 1pixel
-new_float 1pixel
+new_window pixel 2
+new_float pixel 2
 
 #Pywal to invoke themes
-exec_always --no-startup-id wal -R -n -s
 exec_always --no-startup-id ~/.fehbg &
 # Hide borders
 #hide_edge_borders yes
@@ -24,30 +23,30 @@ bindsym $mod+n border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font xft:RobotoMono 8
+font xft:Iosevka Bold 12
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start program launcher
 bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+shift+w exec --no-startup-id rofi -show window
 
-# launch categorized menu
-bindsym $mod+z exec --no-startup-id morc_menu
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
 
-#exec --no-startup-id volumeicon
+exec --no-startup-id volumeicon &
 ##bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 exec --no-startup-id pulseaudio
+exec --no-startup-id xrandr --output eDP-1-1 --primary
 #exec --no-startup-id pa-applet
 #bindsym $mod+Ctrl+m exec pavucontrol
 
@@ -59,30 +58,23 @@ exec --no-startup-id pulseaudio
 
 # Initiate US keyboard layout
 #exec_always --no-startup-id mons -e right
-exec_always --no-startup-id /home/mlabib/.config/polybar/launch.sh
-# Start Applications
-bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec chromium
-#bindsym $mod+F3 exec pcmanfm
-#bindsym $mod+Ctrl+p exec /home/labib/Downloads/pycharm-community-2018.1.4/bin/pycharm.sh
-bindsym $mod+F3 exec pcmanfm
+#exec_always --no-startup-id /home/labib/.config/polybar/launch.sh
+#Start Applications
+exec_always --no-startup-id nm-applet &
+bindsym $mod+F2 exec chromium-browser
+bindsym $mod+F3 exec nemo
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
-#bindsym $mod+Shift+v exec feh /home/mlabib/Pictures_wall/Tech/1458541606774.jpg
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 bindsym $mod+m exec mons -o
 bindsym $mod+Shift+m exec mons -e right
 bindsym $mod+Ctrl+m exec mons -e left
-#bindsym $mod+Ctrl+e exec thunderbird
-#bindsym $mod+Ctrl+c exec atom
 bindsym $mod+x move workspace to output right
-
-
+bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 
 # focus_follows_mouse no
 
@@ -211,6 +203,7 @@ for_window [title="File Transfer*"] floating enable
 for_window [class="Galculator"] floating enable border pixel 1
 for_window [class="GParted"] floating enable border normal
 for_window [title="i3_help"] floating enable sticky enable border normal
+for_window [class="notify-send"] floating enable border normal
 for_window [class="Lightdm-settings"] floating enable
 for_window [class="Lxappearance"] floating enable sticky enable border normal
 for_window [class="Manjaro-hello"] floating enable
@@ -235,6 +228,7 @@ for_window [class="Matplotlib"] floating enable
 for_window [class="URxvt"] floating enable
 for_window [class="Modem-manager-gui"] floating enable
 for_window [class="Gnome-terminal"] floating enable
+for_window [class="yakuake"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -247,23 +241,7 @@ bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
-# Set shut down, restart and locking features
-bindsym $mod+0 mode "$mode_system"
-set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
-mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
-
-    # exit system mode: "Enter" or "Escape"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
+bindsym $mod+Shift+0 exec /home/labib/.config/i3blocks-contrib/shutdown_menu/shutdown_menu
 
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
@@ -303,7 +281,7 @@ exec --no-startup-id xfce4-power-manager
 #exec --no-startup-id clipit
 #exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
-exec_always --no-startup-id ~/.conkycolors/startup.sh
+#exec_always --no-startup-id ~/.conkycolors/startup.sh
 exec --no-startup-id xautolock -time 30 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
@@ -342,35 +320,27 @@ set_from_resource $term_color15    color15
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 #bar {
-#	font pango:Sauce Code Pro Nerd Font 8
-#	position top
-#	tray_output eDP1
+#
+#	tray_output eDP-1-1
 #	tray_padding 0
-#	status_command ~/bumblebee-status/bumblebee-status -m cpu memory disk indicator pasink arch-update battery date time -p date.format="%a, %b %d %Y" -t solarized-powerline
-#	i3bar_command i3bar -t
 #	status_command i3blocks
 #	position bottom
-#	tray_padding 0
-#	height 20
-#	font pango:Fira Mono, Icons 9
-	#tray_output LVDS1
+#
+#      #tray_output LVDS1
 #	binding_mode_indicator yes
-#	separator_symbol "||"
-## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-#	tray_output primary
-#	tray_output eDP1
-
+#    #please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+#
 #	bindsym button4 nop
 #	bindsym button5 nop
-        #font xft:URWGothic-Book 11
-	#strip_workspace_numbers yes
-
+#      #font xft:URWGothic-Book 11
+#      #strip_workspace_numbers yes
+#
 #   colors {
 #        background #002B36
 #       statusline #F9FAF9
 #       separator  #454947
-
-#                      border  backgr. text
+#
+#        #             border  backgr. text
 #       focused_workspace  #F9FAF9 #2d79af #FCFCFC
 #       active_workspace   #595B5B #353836 #FDF6E3
 #       inactive_workspace #595B5B #222D31 #EEE8D5
@@ -379,72 +349,38 @@ set_from_resource $term_color15    color15
 #   }
 #}
 
-# hide/unhide i3status bar
+#hide/unhide i3status bar
 #bindsym $mod+m bar mode toggle
+
+bar {
+	font xft:Blex Mono Nerd Font 12
+	position bottom
+	tray_output primary
+	tray_padding 0
+	binding_mode_indicator yes
+    status_command ~/bumblebee-status/bumblebee-status -m title disk cpu memory battery uptime indicator sensors date time  -p interval=0.2 time.format="%H:%M" date.format="%a, %Y %b %d"  -t solarized
+
+colors {
+	background #002B36
+
+	 #             border  backgr. text
+	  focused_workspace  #F9FAF9 #2d79af #FCFCFC
+	  active_workspace   #595B5B #353836 #FDF6E3
+	  inactive_workspace #595B5B #222D31 #EEE8D5
+	  binding_mode       #16a085 #2C2C2C #F9FAF9
+	  urgent_workspace   #16a085 #FDF6E3 #E5201D
+	}
+
+}
+
+
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #556064 $term_color3 #80FFF9 #FDF6E3
-  client.focused_inactive #2F3D44 $term_color2 #1ABC9C #454948
-  client.unfocused        #2F3D44 $term_color1 #1ABC9C #454948
-  client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
+  client.focused          #2d79af #2d79af #000000 #FDF6E3
+  client.focused_inactive #2F3D44 #B6B6B6 #000000 #454948
+  client.unfocused        #222d31 #242424 #000000 #454948
+  client.urgent           #CB4B16 #FDF6E3 #000000 #268BD2
   client.placeholder      #000000 #0c0c0c #ffffff #000000
 
   client.background       #2B2C2B
-
-#############################
-### settings for i3-gaps: ###
-#############################
-
-# Set inner/outer gaps
-gaps inner 0
-gaps outer 5
-
-# Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
-# gaps inner|outer current|all set|plus|minus <px>
-# gaps inner all set 10
-# gaps outer all plus 5
-
-# Smart gaps (gaps used if only more than one container on the workspace)
-#smart_gaps on
-
-# Smart borders (draw borders around container only if it is not the only container on this workspace)
-# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-#smart_borders on
-
-# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
-
-mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
-
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
-
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
