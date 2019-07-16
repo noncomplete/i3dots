@@ -11,13 +11,13 @@ My Xubuntu i3 setup.
 ## Requirements:
 + i3
 + solarc gtk theme
-+ iosevka font
-+ hijri.* files for hizri date integration.
-+ zsh + ohmyzsh
++ zsh + ohmyzsh + P9K
 + bumblebee-status
 
 ## To-Do:
-+ Create a bash script for automatically setting up the environment.
+[] Create a bash script for automatically setting up the environment.
+[] Fix notification issues.
+[] Fix gtk issues.
 
 Looks something like this (changes a lot):
 ![Normal](scr1.png)
