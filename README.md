@@ -15,9 +15,9 @@ My Xubuntu i3 setup.
 + bumblebee-status
 
 ## To-Do:
-[ ] Create a bash script for automatically setting up the environment.
-[ ] Fix notification issues.
-[ ] Fix gtk issues.
+- [ ] Create a bash script for automatically setting up the environment.
+- [ ] Fix notification issues.
+- [ ] Fix gtk issues.
 
 Looks something like this (changes a lot):
 ![Normal](scr1.png)
