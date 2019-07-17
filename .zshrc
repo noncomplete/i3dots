@@ -15,13 +15,16 @@ export ZSH="/home/labib/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # powerlevel10k configuration
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context virtualenv newline dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_os_icon context virtualenv newline dir vcs)
 POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=''
 POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=''
 POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=''
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs custom_hijri_date)
 POWERLEVEL9K_CUSTOM_HIJRI_DATE="echo $(python3 ~/hread.py)"
 POWERLEVEL9K_CUSTOM_HIJRI_DATE_BACKGROUND="blue"
+POWERLEVEL9K_CUSTOM_OS_ICON="echo  "
+POWERLEVEL9K_CUSTOM_OS_ICON_BACKGROUND=#073642
+POWERLEVEL9K_CUSTOM_OS_ICON_FOREGROUND="blue"
 #POWERLEVEL9K_MODE="awesome-fontconfig"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -108,3 +111,5 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
