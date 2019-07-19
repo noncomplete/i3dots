@@ -1,0 +1,4 @@
+rofi.show: run
+rofi.modi: window,ssh,run,keys,drun
+rofi.theme: .config/rofi/carbo.rasi
+rofi.fullscreen:true
