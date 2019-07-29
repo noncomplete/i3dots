@@ -1,10 +1,7 @@
-"  °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
-"  ° __   _(_)_ __ ___  _ __ ___            °
-"  ° \ \ / / | '_ ` _ \| '__/ __|           °
-"  °  \ V /| | | | | | | | | (__            °
-"  °   \_/ |_|_| |_| |_|_|  \___|           °
-"  °    Labib's VIMRC                       °
-"  °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+"""""""""""""""""""
+"  LABIB's vimrc  "
+"""""""""""""""""""
+
 let mapleader =" "
 let maplocalleader ="`"
 
@@ -42,6 +39,8 @@ set tabstop=4
 set shell=/bin/bash
 set list
 set listchars=tab:▸\ ,
+set cursorline
+set clipboard=unnamed
 set background=dark
 colorscheme solarized
 
@@ -78,15 +77,10 @@ autocmd BufWritePre * %s/\s\+$//e
 " Split characters
 set fillchars=vert:\│
 
-" Cursor Shapes
-let &t_SI = "\<Esc>[6 q"
-let &t_SR = "\<Esc>[4 q"
-let &t_EI = "\<Esc>[2 q"
-
 " Airline config
 let g:airline_theme = 'solarized'
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-"let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 " autocompletion engine
