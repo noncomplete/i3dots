@@ -6,6 +6,7 @@ let mapleader =" "
 let maplocalleader ="`"
 
 call plug#begin('~/.vim/plugged')
+Plug 'racer-rust/vim-racer'
 Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
@@ -19,11 +20,11 @@ Plug 'maralla/completor.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'mhinz/vim-startify'
 Plug 'plasticboy/vim-markdown'
+Plug 'morhetz/gruvbox'
 Plug 'ryanoasis/vim-devicons'
 Plug 'rust-lang/rust.vim'
+Plug 'JuliaEditorSupport/julia-vim'
 Plug 'altercation/vim-colors-solarized'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " Some basics:
@@ -39,10 +40,11 @@ set tabstop=4
 set shell=/bin/bash
 set list
 set listchars=tab:▸\ ,
-set cursorline
+"set cursorline
 set clipboard=unnamed
 set background=dark
-colorscheme solarized
+"colorscheme solarized
+hi StatusLine ctermbg=grey ctermfg=black
 
 " Enable autocompletion:
 set wildmode=longest,list,full
@@ -55,7 +57,7 @@ map <leader>o :setlocal spell! spelllang=en_gb<CR>
 hi clear SpellBad
 hi SpellBad cterm=underline
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
-hi NonText guifg=bg
+"hi NonText guifg=bg
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 set splitbelow splitright
 
@@ -78,14 +80,15 @@ autocmd BufWritePre * %s/\s\+$//e
 set fillchars=vert:\│
 
 " Airline config
-let g:airline_theme = 'solarized'
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
+"let g:airline_theme = 'solarized'
+"let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+"let g:airline_powerline_fonts = 1
+"let g:airline#extensions#tabline#enabled = 1
 
 " autocompletion engine
 let g:completor_clang_binary = '/usr/bin/clang'
 let g:completor_python_binary = '/usr/bin/python3'
+let g:completor_racer_binary = '/home/labib/.cargo/bin/racer'
 
 " Filemanager , Tagbar, and other stuff
 nmap <F8> :TagbarToggle<CR>
@@ -102,6 +105,8 @@ let g:tex_flavor='latex'
 let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
+
+let g:vim_markdown_folding_disabled = 1
 
 " Fuzzy file search with ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
