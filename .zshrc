@@ -1,11 +1,12 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=/home/labib/phq/src:$PATH
-export PATH=/home/labib/q-e/bin:$PATH
-export PATH=/home/labib/scripts:$PATH
-export PATH=/home/labib/i3lock-color:$PATH
-export PATH=/home/labib/i3lock-color/x86_64-pc-linux-gnu:$PATH
-export PATH=/home/labib/ovito-3.0.0-dev419-x86_64/bin:$PATH
+
+# Path variables
+export PATH=/home/labib/Utils/Atomistic/qe-6.4.1/bin:$PATH
+export PATH=/home/labib/Utils/Atomistic/VESTA-x86_64:$PATH
+export PATH=/home/labib/Utils/Atomistic/wannier90-3.0.0/utility:$PATH
+export PATH=/home/labib/Utils/Atomistic/wannier90-3.0.0:$PATH
+
 # Path to your oh-my-zsh installation.
 export ZSH="/home/labib/.oh-my-zsh"
 
@@ -13,20 +14,8 @@ export ZSH="/home/labib/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="frisk"
 
-# powerlevel10k configuration
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_os_icon context virtualenv newline dir vcs)
-#POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=''
-#POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=''
-#POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=''
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs custom_hijri_date)
-POWERLEVEL9K_CUSTOM_HIJRI_DATE="echo $(python3 ~/hread.py)"
-POWERLEVEL9K_CUSTOM_HIJRI_DATE_BACKGROUND="blue"
-POWERLEVEL9K_CUSTOM_OS_ICON="echo  "
-POWERLEVEL9K_CUSTOM_OS_ICON_BACKGROUND=#073642
-POWERLEVEL9K_CUSTOM_OS_ICON_FOREGROUND="blue"
-POWERLEVEL9K_MODE="awesome-fontconfig"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -43,8 +32,14 @@ POWERLEVEL9K_MODE="awesome-fontconfig"
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -79,8 +74,7 @@ POWERLEVEL9K_MODE="awesome-fontconfig"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git
-		 python)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,9 +95,6 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -112,5 +103,3 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

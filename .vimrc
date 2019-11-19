@@ -7,16 +7,20 @@ let maplocalleader ="`"
 
 call plug#begin('~/.vim/plugged')
 Plug 'racer-rust/vim-racer'
+Plug 'jiangmiao/auto-pairs'
+Plug '/usr/bin/fzf'
 Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree'
+Plug 'itchyny/lightline.vim'
 Plug 'majutsushi/tagbar'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'lervag/vimtex'
 Plug 'SirVer/ultisnips'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'honza/vim-snippets'
 Plug 'junegunn/goyo.vim'
 Plug 'PotatoesMaster/i3-vim-syntax'
-Plug 'maralla/completor.vim'
+"Plug 'maralla/completor.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'mhinz/vim-startify'
 Plug 'plasticboy/vim-markdown'
@@ -41,10 +45,10 @@ set shell=/bin/bash
 set list
 set listchars=tab:▸\ ,
 "set cursorline
-set clipboard=unnamed
-set background=dark
+"set clipboard=unnamed
+"set background=dark
 "colorscheme solarized
-hi StatusLine ctermbg=grey ctermfg=black
+"hi StatusLine ctermbg=grey ctermfg=black
 
 " Enable autocompletion:
 set wildmode=longest,list,full
@@ -73,22 +77,43 @@ map <leader>t :terminal<CR>
 " Readmes autowrap text:
 autocmd BufRead,BufNewFile *.md set tw=79
 
-" Automatically deletes all trailing whitespace on save.
-autocmd BufWritePre * %s/\s\+$//e
-
 " Split characters
 set fillchars=vert:\│
 
-" Airline config
-"let g:airline_theme = 'solarized'
-"let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-"let g:airline_powerline_fonts = 1
-"let g:airline#extensions#tabline#enabled = 1
-
 " autocompletion engine
-let g:completor_clang_binary = '/usr/bin/clang'
-let g:completor_python_binary = '/usr/bin/python3'
-let g:completor_racer_binary = '/home/labib/.cargo/bin/racer'
+"let g:completor_clang_binary = '/usr/bin/clang'
+"let g:completor_python_binary = '/usr/bin/python3'
+"let g:completor_racer_binary = '/home/labib/.cargo/bin/racer'
+
+" Lightline configs
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
+
+let g:lightline = {
+	\ 'colorscheme': 'wombat',
+	\ 'component': {
+	\   'lineinfo': ' %3l:%-2v',
+	\ },
+	\ 'component_function': {
+	\   'readonly': 'LightlineReadonly',
+	\   'fugitive': 'LightlineFugitive',
+	\	'cocstatus': 'coc#status',
+	\	'currentfunction': 'CocCurrentFunction'
+	\ },
+	\ 'separator': { 'left': '', 'right': '' },
+	\ 'subseparator': { 'left': '', 'right': '' }
+	\ }
+function! LightlineReadonly()
+	return &readonly ? '' : ''
+endfunction
+function! LightlineFugitive()
+	if exists('*fugitive#head')
+		let branch = fugitive#head()
+		return branch !=# '' ? ''.branch : ''
+	endif
+	return ''
+endfunction
 
 " Filemanager , Tagbar, and other stuff
 nmap <F8> :TagbarToggle<CR>
@@ -107,7 +132,3 @@ set conceallevel=1
 let g:tex_conceal='abdmg'
 
 let g:vim_markdown_folding_disabled = 1
-
-" Fuzzy file search with ctrlp
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-
