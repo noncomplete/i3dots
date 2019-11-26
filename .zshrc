@@ -6,6 +6,7 @@ export PATH=/home/labib/Utils/Atomistic/qe-6.4.1/bin:$PATH
 export PATH=/home/labib/Utils/Atomistic/VESTA-x86_64:$PATH
 export PATH=/home/labib/Utils/Atomistic/wannier90-3.0.0/utility:$PATH
 export PATH=/home/labib/Utils/Atomistic/wannier90-3.0.0:$PATH
+export PATH=/home/labib/Utils/julia-1.2.0/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/labib/.oh-my-zsh"
@@ -14,7 +15,7 @@ export ZSH="/home/labib/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="frisk"
+ZSH_THEME="dieter"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -74,7 +75,7 @@ ZSH_THEME="frisk"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git python battery)
 
 source $ZSH/oh-my-zsh.sh
 

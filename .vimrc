@@ -6,7 +6,6 @@ let mapleader =" "
 let maplocalleader ="`"
 
 call plug#begin('~/.vim/plugged')
-Plug 'racer-rust/vim-racer'
 Plug 'jiangmiao/auto-pairs'
 Plug '/usr/bin/fzf'
 Plug 'tpope/vim-sensible'
@@ -20,13 +19,11 @@ Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'honza/vim-snippets'
 Plug 'junegunn/goyo.vim'
 Plug 'PotatoesMaster/i3-vim-syntax'
-"Plug 'maralla/completor.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'mhinz/vim-startify'
 Plug 'plasticboy/vim-markdown'
 Plug 'morhetz/gruvbox'
 Plug 'ryanoasis/vim-devicons'
-Plug 'rust-lang/rust.vim'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'altercation/vim-colors-solarized'
 call plug#end()
@@ -46,8 +43,8 @@ set list
 set listchars=tab:▸\ ,
 "set cursorline
 "set clipboard=unnamed
-"set background=dark
-"colorscheme solarized
+colorscheme solarized
+set background=dark
 "hi StatusLine ctermbg=grey ctermfg=black
 
 " Enable autocompletion:
@@ -91,10 +88,14 @@ function! CocCurrentFunction()
 endfunction
 
 let g:lightline = {
-	\ 'colorscheme': 'wombat',
+	\ 'colorscheme': 'solarized',
 	\ 'component': {
 	\   'lineinfo': ' %3l:%-2v',
 	\ },
+	\ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+    \ },
 	\ 'component_function': {
 	\   'readonly': 'LightlineReadonly',
 	\   'fugitive': 'LightlineFugitive',
