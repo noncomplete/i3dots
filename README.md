@@ -9,7 +9,7 @@ My Manjaro i3 setup. Oberon's Manjaro i3 community edition is used as a base.
 
 ## Requirements:
 + zsh + ohmyzsh
-+ Polybar (Script credit: Benedikt Vollmerhaus)
++ Polybar (Script credit: [Benedikt Vollmerhaus](https://gitlab.com/BVollmerhaus/dotfiles "Dotfiles"))
 
 ## To-Do:
 - [ ] Create a bash script for automatically setting up the environment.
