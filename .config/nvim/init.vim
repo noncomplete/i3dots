@@ -6,31 +6,43 @@ let mapleader =" "
 let maplocalleader ="`"
 
 call plug#begin('~/.vim/plugged')
-Plug 'jiangmiao/auto-pairs'
 Plug '/usr/bin/fzf'
 Plug 'tpope/vim-sensible'
+Plug 'tek256/simple-dark'
+Plug 'tpope/vim-fugitive'
+Plug 'huyvohcmc/atlas.vim'
+Plug 'Jorengarenar/vim-darkness'
+Plug 'jiangmiao/auto-pairs'
+Plug 'ervandew/supertab'
+Plug 'andreypopp/vim-colors-plain'
+Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/nerdtree'
-Plug 'itchyny/lightline.vim'
 Plug 'majutsushi/tagbar'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'itchyny/lightline.vim'
+Plug 'widatama/vim-phoenix'
+Plug 'JuliaEditorSupport/julia-vim'
+Plug 'dag/vim-fish'
+Plug 'junegunn/goyo.vim'
 Plug 'lervag/vimtex'
 Plug 'SirVer/ultisnips'
-Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'honza/vim-snippets'
-Plug 'junegunn/goyo.vim'
+Plug 'dylanaraps/wal.vim'
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'PotatoesMaster/i3-vim-syntax'
-Plug 'vimwiki/vimwiki'
+Plug 'cespare/vim-toml'
+Plug 'jpalardy/vim-slime'
+Plug 'rust-lang/rust.vim'
 Plug 'mhinz/vim-startify'
 Plug 'plasticboy/vim-markdown'
-Plug 'morhetz/gruvbox'
 Plug 'ryanoasis/vim-devicons'
-Plug 'JuliaEditorSupport/julia-vim'
-Plug 'altercation/vim-colors-solarized'
 call plug#end()
 
 " Some basics:
 set nocompatible
+set title
 set mouse=a
+set noshowmode
 filetype plugin on
 set nosol
 syntax on
@@ -38,14 +50,13 @@ set encoding=utf-8
 set number relativenumber
 set shiftwidth=4
 set tabstop=4
+set expandtab
 set shell=/bin/bash
 set list
 set listchars=tab:▸\ ,
 "set cursorline
-"set clipboard=unnamed
-colorscheme solarized
-set background=dark
-"hi StatusLine ctermbg=grey ctermfg=black
+"set background=dark
+colorscheme atlas
 
 " Enable autocompletion:
 set wildmode=longest,list,full
@@ -68,9 +79,6 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" Open a terminal
-map <leader>t :terminal<CR>
-
 " Readmes autowrap text:
 autocmd BufRead,BufNewFile *.md set tw=79
 
@@ -81,40 +89,6 @@ set fillchars=vert:\│
 "let g:completor_clang_binary = '/usr/bin/clang'
 "let g:completor_python_binary = '/usr/bin/python3'
 "let g:completor_racer_binary = '/home/labib/.cargo/bin/racer'
-
-" Lightline configs
-function! CocCurrentFunction()
-    return get(b:, 'coc_current_function', '')
-endfunction
-
-let g:lightline = {
-	\ 'colorscheme': 'solarized',
-	\ 'component': {
-	\   'lineinfo': ' %3l:%-2v',
-	\ },
-	\ 'active': {
-    \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
-    \ },
-	\ 'component_function': {
-	\   'readonly': 'LightlineReadonly',
-	\   'fugitive': 'LightlineFugitive',
-	\	'cocstatus': 'coc#status',
-	\	'currentfunction': 'CocCurrentFunction'
-	\ },
-	\ 'separator': { 'left': '', 'right': '' },
-	\ 'subseparator': { 'left': '', 'right': '' }
-	\ }
-function! LightlineReadonly()
-	return &readonly ? '' : ''
-endfunction
-function! LightlineFugitive()
-	if exists('*fugitive#head')
-		let branch = fugitive#head()
-		return branch !=# '' ? ''.branch : ''
-	endif
-	return ''
-endfunction
 
 " Filemanager , Tagbar, and other stuff
 nmap <F8> :TagbarToggle<CR>
@@ -131,5 +105,12 @@ let g:tex_flavor='latex'
 let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
-
 let g:vim_markdown_folding_disabled = 1
+
+" statusline
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline_theme='minimalist'
+"let g:airline_powerline_fonts = 1
+let g:lightline = {
+      \ 'colorscheme': 'atlas',
+      \ }

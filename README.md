@@ -1,5 +1,5 @@
 # i3dots
-My Manjaro i3 setup. Oberon's Manjaro i3 community edition is used as a base.
+My Manjaro i3 setup.
 
 ## Goals:
 + Simple and functional.
@@ -7,9 +7,14 @@ My Manjaro i3 setup. Oberon's Manjaro i3 community edition is used as a base.
 + No extensive ricing.
 + A distraction free environment for my works.
 
-## Requirements:
-+ zsh + ohmyzsh
-+ Polybar (Script credit: [Benedikt Vollmerhaus](https://gitlab.com/BVollmerhaus/dotfiles "Dotfiles"))
+## Software List:
++ Nvim (Atlas colorscheme)
++ Rofi
++ Pywall
++ Alacritty
++ Fish shell
++ Polybar [adi1090x](https://github.com/adi1090x/polybar-themes)
++ nnn file manager
 
 ## To-Do:
 - [ ] Create a bash script for automatically setting up the environment.
