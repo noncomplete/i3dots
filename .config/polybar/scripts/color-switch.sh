@@ -5,7 +5,7 @@
 
 SDIR="$HOME/.config/polybar/scripts"
 
-MENU="$(rofi -sep "|" -dmenu -i -p 'Select' -location 5 -columns 1 -xoffset -240 -yoffset -52 -width 12 -hide-scrollbar -line-padding 4 -padding 20 -lines 10 <<< " default| amber| blue| blue-grey| brown| cyan| deep-orange| deep-purple| green| grey| indigo| light-blue| light-green| lime| orange| pink| purple| red| teal| yellow")"
+MENU="$(rofi -sep "|" -dmenu -i -p 'Select' -location 5 -columns 1 -xoffset -150 -yoffset -750 -width 12 -hide-scrollbar -line-padding 4 -padding 20 -lines 10 <<< " default| amber| blue| blue-grey| brown| cyan| deep-orange| deep-purple| green| grey| indigo| light-blue| light-green| lime| orange| pink| purple| red| teal| yellow")"
             case "$MENU" in
 				## Dark Colors
 				*default) $SDIR/colors.sh -default ;;
