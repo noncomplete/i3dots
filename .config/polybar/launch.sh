@@ -11,7 +11,7 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 # Launch bar1 and bar2
 polybar -c ~/.config/polybar/config.ini main &
 
-my_laptop_external_monitor=$(xrandr --query | grep 'HDMI2')
+my_laptop_external_monitor=$(xrandr --query | grep 'HDMI-2')
 if [[ $my_laptop_external_monitor = *connected* ]]; then
     polybar -c ~/.config/polybar/config.ini second &
 fi
