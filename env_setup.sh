@@ -18,6 +18,7 @@ makepkg -si
 cd
 echo "!! in directory : $(pwd)"
 
+
 echo "----------------Installing fonts--------------------"
 
 sudo pacman -S nerd-fonts-iosevka ttf-dejavu
@@ -61,7 +62,6 @@ yay -S polybar
 
 echo "----------------Installing dotfiles-----------------"
 
-git clone https://github.com/noncomplete/i3dots
 cd i3dots
 echo "!! in directory $(pwd)"
 cp .xinitrc ../.xinitrc
